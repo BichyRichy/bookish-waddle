@@ -23,4 +23,6 @@ RUN yum clean all;
 ADD su /etc/pam.d/
 ADD esmondAPI /home/esmondAPI
 
+RUN yum -y remove esmond; yum -y install esmond; systemctl restart httpd.service; yum clean all;
+
 CMD ["/usr/sbin/init"]
